@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Stats</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #ffd700;
+      margin-bottom: 20px;
+    }
+    .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .stats-card {
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      width: 300px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .stats-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.8);
+    }
+    .stats-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .stats-card p {
+      margin: 10px 0;
+    }
+    .stats-card .highlight {
+      color: #ff5722;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      padding: 10px;
+      background-color: #111;
+    }
+    .footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #ff5722;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Gaming Stats Overview</h1>
+    <div class="stats-container" id="statsContainer">
+      <!-- Cards will be dynamically added here -->
+    </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2024 Gaming Stats | <a href="mailto:gamestats@example.com">Contact Us</a></p>
+  </div>
+
+  <script>
+    // Example data similar to the image
+    const statsData = [
+      {
+        cycle: "C2S4",
+        highestTier: "Ace Dominator",
+        rating: "A+",
+        matchesPlayed: 276,
+        wins: 40,
+        finishes: 605,
+        fdr: 2.19,
+        highestDamage: 1982,
+      },
+      {
+        cycle: "C2S5",
+        highestTier: "Ace Master",
+        rating: "A",
+        matchesPlayed: 250,
+        wins: 35,
+        finishes: 500,
+        fdr: 2.00,
+        highestDamage: 1890,
+      },
+      {
+        cycle: "C2S6",
+        highestTier: "Ace",
+        rating: "A+",
+        matchesPlayed: 300,
+        wins: 50,
+        finishes: 700,
+        fdr: 2.33,
+        highestDamage: 2200,
+      },
+    ];
+
+    const statsContainer = document.getElementById("statsContainer");
+
+    statsData.forEach((stat) => {
+      const card = document.createElement("div");
+      card.classList.add("stats-card");
+      card.innerHTML = `
+        <h2>${stat.cycle}</h2>
+        <p>Highest Tier: <span class="highlight">${stat.highestTier}</span></p>
+        <p>Rating: <span class="highlight">${stat.rating}</span></p>
+        <p>Matches Played: <span class="highlight">${stat.matchesPlayed}</span></p>
+        <p>Wins: <span class="highlight">${stat.wins}</span></p>
+        <p>Finishes: <span class="highlight">${stat.finishes}</span></p>
+        <p>F/D Ratio: <span class="highlight">${stat.fdr}</span></p>
+        <p>Highest Damage: <span class="highlight">${stat.highestDamage}</span></p>
+      `;
+      statsContainer.appendChild(card);
+    });
+  </script>
+</body>
+</html>
